@@ -1,0 +1,77 @@
+.task-container {
+  width: 650px;
+  margin: 0 auto;
+  transition: transform 1s ease;
+
+  &:hover {
+    transition: 1s;
+  }
+}
+
+.task {
+  padding: 15px;
+  color: #222831;
+  margin-bottom: 20px;
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  background-color: #f6e9b2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  transition: height 1s ease;
+
+  .title {
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+
+    h3 {
+      margin: 0;
+    }
+  }
+
+  &.hovered {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, height 0.3s ease;
+  }
+
+  button {
+    height: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px 20px;
+    font-size: 18px;
+    height: 100%;
+    background-color: #007bff;
+    color: #222831;
+    border: none;
+    border-radius: 0px 15px 15px 0px;
+    cursor: pointer;
+    background-color: #ffdb5c;
+    font-size: 18px;
+
+    &:hover {
+      background-color: #ffd748;
+    }
+  }
+
+  .task-info {
+    margin-top: 10px;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+  }
+
+  &.hovered .task-info {
+    max-height: 100px;
+    opacity: 1;
+  }
+
+  .info {
+    text-align: left;
+  }
+}
