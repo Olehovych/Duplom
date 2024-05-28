@@ -1,16 +1,18 @@
-import React, { useState } from "react";
-import "./Modal.scss"; // Не забудьте імпортувати ваш SCSS файл з стилями для модального вікна
+// Modal.js
 
-const Modal = ({ isOpen, onClose }) => {
+import React, { useState } from "react";
+import "./Modal.scss";
+
+const Modal = ({ isOpen, onClose, onSubmit }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [group, setGroup] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Тут можна обробити дані форми, наприклад, надіслати на сервер
-    console.log("Submitted data:", { firstName, lastName, group });
-    onClose(); // Закрити модальне вікно після надсилання
+    const formData = { firstName, lastName, group };
+    onSubmit(formData);
+    onClose();
   };
 
   if (!isOpen) return null;

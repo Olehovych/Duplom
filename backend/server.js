@@ -29,7 +29,22 @@ const taskSchema = new mongoose.Schema({
 
 const Task = mongoose.model("Task", taskSchema);
 
-// Маршрути
+// Схема для опитувань
+const surveySchema = new mongoose.Schema({
+  questions: [
+    {
+      text: String,
+      options: [String],
+      correct: Number,
+      longAnswer: Boolean,
+      longAnswerText: String,
+    },
+  ],
+});
+
+const Survey = mongoose.model("Survey", surveySchema);
+
+// Маршрути для завдань
 app.get("/tasks", async (req, res) => {
   try {
     const tasks = await Task.find();
@@ -55,6 +70,27 @@ app.delete("/tasks/:id", async (req, res) => {
     const { id } = req.params;
     await Task.findByIdAndDelete(id);
     res.status(204).send();
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+// Маршрути для опитувань
+app.post("/api/save", async (req, res) => {
+  const { questions } = req.body;
+  const newSurvey = new Survey({ questions });
+  try {
+    await newSurvey.save();
+    res.status(201).json(newSurvey);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+app.get("/api/surveys", async (req, res) => {
+  try {
+    const surveys = await Survey.find();
+    res.json(surveys);
   } catch (err) {
     res.status(500).send(err);
   }

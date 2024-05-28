@@ -2,6 +2,13 @@ const express = require("express");
 const router = express.Router();
 const Task = require("../models/Task");
 
+const adminSchema = new mongoose.Schema({
+  username: String,
+  password: String, // Пароль буде зберігатися у вигляді хеша
+});
+
+const Admin = mongoose.model("Admin", adminSchema);
+
 // Отримання всіх завдань
 router.get("/", async (req, res) => {
   try {
