@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import Task from "../components/Task"; // Імпортуємо компонент Task
 import Pagination from "./Pagination/Pagination"; // Імпортуємо компонент пагінації
 import LoginModal from "./LoginModal/Modal"; // Імпортуємо модальне вікно для логіну
-import "./TaskList.scss";
 
 const TaskList = ({ tasks, onTaskAction, actionLabel, isAdminPage }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -42,7 +41,6 @@ const TaskList = ({ tasks, onTaskAction, actionLabel, isAdminPage }) => {
             isAdminPage={isAdminPage}
           />
         ))}
-        <button className="btn-view">Переглянути</button>
       </div>
       {/* Пагінація */}
       <Pagination

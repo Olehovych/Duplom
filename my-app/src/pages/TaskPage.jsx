@@ -23,7 +23,6 @@ const TaskPage = () => {
 
   return (
     <div className="task-page">
-      <h1>Tasks</h1>
       <TaskList
         tasks={tasks}
         onTaskAction={handleCompleteTask}
