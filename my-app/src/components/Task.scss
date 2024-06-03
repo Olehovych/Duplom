@@ -1,0 +1,107 @@
+.login-button {
+  margin: 30px auto 10px auto;
+  padding: 15px 20px;
+  background-color: #9dde8b;
+  color: #222831;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  transition: 0.5s;
+  font-size: 16px;
+  &:hover {
+    transition: 0.5s;
+    background-color: #82db69;
+  }
+}
+.task-container {
+  width: 650px;
+  margin: 0 auto;
+  transition: transform 1s ease;
+
+  &:hover {
+    transition: 1s;
+  }
+}
+
+.task {
+  padding: 15px;
+  color: #222831;
+  margin-bottom: 20px;
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  background-color: #f6e9b2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  transition: height 1s ease;
+
+  .title {
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+
+    h3 {
+      margin: 0;
+    }
+  }
+
+  &.hovered {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, height 0.3s ease;
+  }
+
+  .toggle-button {
+    margin: 0;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px 20px;
+    font-size: 18px;
+    height: 100%;
+    background-color: #007bff;
+    color: #222831;
+    border: none;
+    border-radius: 0px 15px 15px 0px;
+    cursor: pointer;
+    background-color: #ffdb5c;
+    font-size: 18px;
+    transition: 0.5s;
+    &:hover {
+      transition: 0.5s;
+      background-color: #ffd748;
+    }
+  }
+
+  .admin-page-button {
+    background-color: red;
+    color: white;
+
+    &:hover {
+      background-color: darkred;
+    }
+  }
+
+  .task-info {
+    margin-top: 10px;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+  }
+
+  &.hovered .task-info {
+    max-height: 100px;
+    opacity: 1;
+  }
+
+  .info {
+    text-align: left;
+  }
+}

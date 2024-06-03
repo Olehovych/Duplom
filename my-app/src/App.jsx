@@ -1,35 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import AdminPage from "./pages/AdminPage"; // Ваш компонент AdminPage
+import TaskPage from "./pages/TaskPage"; // Ваш компонент TaskPage
+import Survey from "./pages/survey/Survey";
+import Main from "./pages/MainPage/Main";
+import SurveyViewer from "./pages/surveyViewer/SurveyViewer";
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <Router>
+      <Routes>
+        <Route path="/SurveyViewer" element={<SurveyViewer />} />
+        <Route path="/Main" element={<Main />} />
+        <Route path="/Survey" element={<Survey />} />
+        <Route path="/taskpage" element={<TaskPage />} />
+        <Route path="/admin" element={<AdminPage />} />
+      </Routes>
+    </Router>
+  );
+};
 
-export default App
+export default App;

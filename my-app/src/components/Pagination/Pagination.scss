@@ -1,0 +1,24 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.page-item {
+  background-color: #ffeb99; /* Жовтий фон */
+  border: none;
+  margin: 0 5px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.page-item:hover {
+  background-color: #ffd700; /* Золотистий фон при наведенні */
+}
+
+.page-item.active {
+  font-weight: bold;
+  background-color: #fdd835; /* Інший жовтий колір для активної сторінки */
+}
